@@ -51,10 +51,10 @@ router.get("/", (req, res) =>{
     //res.send("Lista dei post");  
 });
 
-router.get("/:id", (req, res) =>{
-  const { id } = req.params;
-  res.send(`Dettaglio del post con slug ${id}`);  
-});
+// router.get("/:id", (req, res) =>{
+//   const { id } = req.params;
+//   res.send(`Dettaglio del post con slug ${id}`);  
+// });
 
 router.put("/:id", (req, res) =>{
   const { id } = req.params;
@@ -77,8 +77,17 @@ router.patch("/:id", (req, res) =>{
 
 router.get("/index", (req, res) =>{
   res.json(posts);
-  //res.send("Lista dei post");  
+  res.send("Lista dei post");  
 });
+
+router.get("/:slug", (req, res) => {
+
+  const currentSlug = req.params.slug;
+
+  const currentPost = posts.find(posts => posts.slug === currentSlug);
+
+  res.json(currentPost);
+  });
 
 module.exports = router;
 
