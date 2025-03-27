@@ -5,13 +5,14 @@ const port = 3000;
 
 app.use(express.static("public"));
 
-app.get("/posts", (req, res) => {
-    console.log("Server del mio blog");
-    res.send(posts);
-});
-//console.log(posts);
+// app.get("/posts", (req, res) => {
+//     console.log("Server del mio blog");
+//     res.send(posts);
+// });
+// //console.log(posts);
 
-app.listen(port, () => {
-    console.log("sono un server attivo sulla porta"+ " " + port);
+// app.listen(port, () => {
+//     console.log("sono un server attivo sulla porta"+ " " + port);
 
-})
+// })
+

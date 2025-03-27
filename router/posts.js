@@ -45,3 +45,21 @@ const posts = [
 
 module.exports = posts;
 
+
+const express = require("express");
+const router = express.Router();
+
+router.get("/", (req, res) =>{
+    res.send("Lista dei post");  
+});
+
+router.get("/:slug", (req, res) =>{
+  const { slug } = req.params;
+  res.send(`Dettaglio del post con slug ${slug}`);  
+});
+
+ 
+router.delete("/:slug", (req, res) =>{
+  const { slug } = req.params;
+  res.send(``); 
+});
