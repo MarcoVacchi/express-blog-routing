@@ -76,8 +76,10 @@ router.patch("/:id", (req, res) =>{
 });
 
 router.get("/index", (req, res) =>{
+
   res.json(posts);
-  res.send("Lista dei post");  
+  res.send("Lista dei post");
+    
 });
 
 router.get("/:slug", (req, res) => {
@@ -86,7 +88,8 @@ router.get("/:slug", (req, res) => {
 
   const currentPost = posts.find(posts => posts.slug === currentSlug);
 
-  res.json(currentPost);
+  currentPost ? res.json(currentPost) 
+              : res.json("inserisci uno slag valido");
   });
 
 module.exports = router;
